@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 const config = require('../config.json')
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder, MessageActionRow } = require('discord.js');
-const buttons = require('../buttonsBuilder/play.js');
+const {linia1, linia2} = require('../buttonsBuilder/play.js');
 
 module.exports = function (song, queue, client) {
 
@@ -56,23 +56,11 @@ module.exports = function (song, queue, client) {
         queue.textChannel.send({ embeds: [embedWithoutimage]})
     } else {
 
-        const skip = new ButtonBuilder()
-            .setCustomId('skip')
-            .setLabel('Przewin! (/skip)')
-            .setStyle(ButtonStyle.Secondary);
-
-        const leave = new ButtonBuilder()
-            .setCustomId('leave')
-            .setLabel('Wyjdź! (/leave)')
-            .setStyle(ButtonStyle.Danger);
-
-        const row = new ActionRowBuilder()
-            .addComponents(skip, leave);
 
 
         queue.textChannel.send({
             embeds: [embed],
-            components: [row]
+            components: [linia1, linia2]
         })
     }
 
