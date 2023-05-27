@@ -16,10 +16,6 @@ const shuffle = new ButtonBuilder()
     .setLabel('Przetasuj kolejke! (/shuffle)')
     .setStyle(ButtonStyle.Secondary);
 
-const queue = new ButtonBuilder()
-    .setCustomId('queue')
-    .setLabel('Sprawdz kolejke! (/queue)')
-    .setStyle(ButtonStyle.Danger);
 
 const volumeup = new ButtonBuilder()
     .setCustomId('volumeup')
@@ -42,7 +38,7 @@ const stop = new ButtonBuilder()
     .setStyle(ButtonStyle.Danger);
 
 const linia1 = new ActionRowBuilder()
-    .addComponents(skip, shuffle, queue, leave);
+    .addComponents(skip, shuffle, leave);
 
 const linia2 = new ActionRowBuilder()
     .addComponents(volumeup, volumedown, resume, stop);

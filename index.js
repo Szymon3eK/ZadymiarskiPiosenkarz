@@ -87,6 +87,20 @@ readdirSync('./events').forEach(async file => {
 })
 
 
+//
+// button event handler
+//
+
+readdirSync('./buttonsBuilder/events').forEach(async file => {
+	const event = await require(`./buttonsBuilder/events/${file}`);
+	if (event.once) {
+		client.once(event.name, (...args) => event.execute(...args));
+	} else {
+		client.on(event.name, (...args) => event.execute(...args, client));
+	}
+})
+
+
 client.distube.on('empty', (queue) =>{
     queue.textChannel.send('Kanal jest pusty! Wychodze z kanalu! 😄')
 })
@@ -99,6 +113,13 @@ client.distube.on('addSong', (queue, song) =>{
     require('./distubeMessages/addSong.js')(song, queue, client)
 })
 
+// client.on('interactionCreate', async (interaction) => {
+//     if (!interaction.isButton()) return;
+  
+//     if (interaction.customId === 'skip') {
+//       await interaction.reply('Button clicked!');
+//     }
+//   });
 
 
 
