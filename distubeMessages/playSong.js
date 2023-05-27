@@ -1,7 +1,10 @@
 const { EmbedBuilder } = require('discord.js');
 const config = require('../config.json')
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder, MessageActionRow } = require('discord.js');
+const buttons = require('../buttonsBuilder/play.js');
 
 module.exports = function (song, queue, client) {
+
 
     var randomsetfooter = Math.floor(Math.random() * config.discord.setFooter.length);
 
@@ -26,6 +29,9 @@ module.exports = function (song, queue, client) {
 
         .setFooter({ text: `${config.discord.setFooter[randomsetfooter]}`, iconURL: (client.users.cache.get(config.discord.ownerID)).displayAvatarURL()})
 
+
+        // soundcloud or spotify
+
         const embedWithoutimage = new EmbedBuilder()
         .setColor(config.colors.color)
         .setTitle(`**${song.name}** - **${song.formattedDuration}**`)
@@ -49,7 +55,25 @@ module.exports = function (song, queue, client) {
     if(song.source != 'youtube') {
         queue.textChannel.send({ embeds: [embedWithoutimage]})
     } else {
-        queue.textChannel.send({ embeds: [embed]})
+
+        const skip = new ButtonBuilder()
+            .setCustomId('skip')
+            .setLabel('Przewin! (/skip)')
+            .setStyle(ButtonStyle.Secondary);
+
+        const leave = new ButtonBuilder()
+            .setCustomId('leave')
+            .setLabel('Wyjdź! (/leave)')
+            .setStyle(ButtonStyle.Danger);
+
+        const row = new ActionRowBuilder()
+            .addComponents(skip, leave);
+
+
+        queue.textChannel.send({
+            embeds: [embed],
+            components: [row]
+        })
     }
 
 
