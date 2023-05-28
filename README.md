@@ -1,5 +1,5 @@
 # musicbot
 bot ktory bedzie walil ostra vixe
 
-#errors:
-    - volume NAN
+#Dodaj bota na swoj serwer!
+    https://musicbot.szymon3ek.xyz/
