@@ -1,0 +1,78 @@
+body {
+    text-align: center;
+    background-image: url(../image/background.png);
+    background-repeat: repeat-x;
+    background-size: cover;
+
+    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+}
+
+
+button {
+  align-items: center;
+  background: #FFFFFF;
+  border: 0 solid #E2E8F0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  color: #1A202C;
+  display: inline-flex;
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  height: 56px;
+  justify-content: center;
+  line-height: 24px;
+  overflow-wrap: break-word;
+  padding: 24px;
+  text-decoration: none;
+  width: auto;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+img {
+    width: 64px;
+    height: 64px;
+}
+
+li {
+    display:block;
+    clear:both;
+  
+}
+
+#b1:hover {
+    background-color: rgb(255, 109, 109);
+}
+
+#b2:hover {
+    background-color: rgb(255, 255, 110);
+}
+
+#b3:hover {
+    background-color: rgb(126, 255, 126);
+}
+
+#b4:hover {
+    background-color: rgb(116, 116, 255);
+
+}
+
+
+#b1 {
+    border: 3px solid red;
+}
+
+#b2 {
+    border: 3px solid yellow;
+}
+
+#b3 {
+    border: 3px solid lime;
+}
+
+#b4 {
+    border: 3px solid blue;
+}
