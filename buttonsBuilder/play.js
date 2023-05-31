@@ -32,16 +32,22 @@ const resume = new ButtonBuilder()
     .setLabel('Wznow! (/resume)')
     .setStyle(ButtonStyle.Secondary);
 
-const stop = new ButtonBuilder()
-    .setCustomId('stop')
-    .setLabel('Zatrzymaj! (/stop)')
+const pause = new ButtonBuilder()
+    .setCustomId('pause')
+    .setLabel('Zatrzymaj! (/pause)')
     .setStyle(ButtonStyle.Danger);
 
+const stop = new ButtonBuilder()
+    .setCustomId('stop')
+    .setLabel('Zrestartuj kolejke! (/stop)')
+    .setStyle(ButtonStyle.Danger);
+
+    
 const linia1 = new ActionRowBuilder()
-    .addComponents(skip, shuffle, leave);
+    .addComponents(skip, shuffle, leave, stop);
 
 const linia2 = new ActionRowBuilder()
-    .addComponents(volumeup, volumedown, resume, stop);
+    .addComponents(volumeup, volumedown, resume, pause);
 
 module.exports = { linia1, linia2 };
 

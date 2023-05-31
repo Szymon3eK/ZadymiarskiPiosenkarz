@@ -10,12 +10,10 @@ module.exports = {
 
         const queue = client.distube.getQueue(interaction);
 
-            try {
-                const song = await queue.skip();
-              } catch(e) {
-                console.log(e);
-            }
+        if(queue.volume + 20 > 200) return interaction.reply({content: 'Nie mozesz zwiekszyc glosnosci powyzej 200!', ephemeral: true})
+        interaction.reply({content: 'Zmieniles glosnosc o +20! ', ephemeral: true})
 
+        queue.setVolume(queue.volume + 20);
 
     },
 };
