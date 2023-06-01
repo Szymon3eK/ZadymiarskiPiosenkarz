@@ -94,7 +94,11 @@ readdirSync('./events').forEach(async file => {
 readdirSync('./buttonsBuilder/events').forEach(async file => {
 	const event = await require(`./buttonsBuilder/events/${file}`);
 	if (event.once) {
-		client.once(event.name, (...args) => event.execute(...args));
+		try {
+            client.once(event.name, (...args) => event.execute(...args));
+        } catch (error) {
+            interaction.reply({ content: 'Wystąpił błąd podczas klikania guzika.', ephemeral: true });
+        }
 	} else {
 		client.on(event.name, (...args) => event.execute(...args, client));
 	}
